@@ -1,0 +1,79 @@
+html {
+  background: #288D8D;
+}
+
+text {
+  font-size: 16px ;
+}
+
+#page {
+  height: 100vh;
+  padding: 20px;
+}
+#content {
+  max-width: 390px;
+  margin: 0 auto;
+}
+
+.check {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  border:3px solid #707070;
+  border-radius: 50%;
+  position: relative;
+}
+
+.check:checked {
+  font-size: 25px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  text-align: center;
+  position: relative;
+}
+
+.list-container {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.list {
+  width: 100%;
+  border-radius: 16px;
+  display: flex;
+  gap: 16px;
+  background: #B1F3DE;
+  margin-bottom: 16px;
+  padding: 15px;
+}
+
+.ladel {
+  font-size: 20px;
+}
+
+.category-list{
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  font-size: 20px;
+}
+
+.category-item {
+  cursor: pointer;
+}
+
+.category-item.active {
+  color: yellow
+}
+
+.enrollment {
+  position: fixed;
+  right: 31%;
+  bottom: 10%;
+  border-radius: 16px;
+  background-image: url('/assets/img/enrollment.svg');
+  background-size: cover;
+  width: 80px;
+  height: 80px;
+}
