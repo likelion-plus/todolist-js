@@ -1,0 +1,57 @@
+/* 상단 화살표 추가하기 */
+/* 상세페이지 css */
+section#page-01 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: inset 0px 0px 3px 1px rgb(0, 38, 255);
+  height: 100vh;
+  justify-content: center;
+  max-width: 24.375rem;
+  margin: 0 auto;
+  background-color: #303037;
+}
+
+article.detail-article {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.registerHeading {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.time {
+  color: #fff;
+}
+
+.back-arrow img {
+  background: url(../img/Arrow.svg) no-repeat;
+  padding: 1rem;
+}
+
+.input-box {
+  box-shadow: inset 0px 0px 3px 1px rgb(0, 38, 255);
+  margin-bottom: 8rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.input-box > * {
+  display: block;
+}
+
+.input-box input {
+  padding: 0.5rem;
+  background-color: #b1f3de;
+}
+
+.input-box textarea {
+  padding: 0.5rem;
+  background-color: #b1f3de;
+  min-height: 20rem;
+}

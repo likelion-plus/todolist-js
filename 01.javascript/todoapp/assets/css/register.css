@@ -1,0 +1,66 @@
+.registerArticle {
+  background-color: #fff;
+  margin: 10px 10px;
+  border-radius: 16px;
+  min-height: 30vh;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-top: 50px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.registerSection {
+  min-height: 95vh;
+}
+
+body.registerBody {
+  background-color: #288d8d;
+}
+
+.textInput {
+  width: 100%;
+  border-radius: 4px;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+}
+
+.textInput::placeholder {
+  color: darkgray;
+}
+
+.textInput:first-child {
+  margin-bottom: 40px;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.textInput:last-child {
+  font-size: 1rem;
+  font-weight: 400;
+  min-height: 20vh;
+  outline: none;
+}
+
+.btnDiv {
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 10px;
+}
+
+.registerBtn {
+  background-color: #fdd287;
+  width: 150px;
+  height: 58px;
+  border-radius: 16px;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+footer {
+  text-align: center;
+  color: whitesmoke;
+}
