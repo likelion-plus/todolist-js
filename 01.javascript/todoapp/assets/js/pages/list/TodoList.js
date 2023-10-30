@@ -1,7 +1,7 @@
 import Header from '../../layout/Header.js';
 import Footer from '../../layout/Footer.js';
-import TodoRegist from '../regist/TodoRegist.js';
-import TodoInfo from '../info/TodoInfo.js';
+
+import { linkTo } from '../../Router.js';
 
 const defaultInstance = axios.create({
   baseURL: 'http://localhost:33088/api',
@@ -93,10 +93,7 @@ const displayList = async (parent) => {
 
     btnDetail.addEventListener('click', async function (event) {
       if (event.target.type === 'button') {
-        const infoPage = await TodoInfo({
-          _id: item._id
-        });
-        document.querySelector('#page').replaceWith(infoPage);
+        linkTo(todoInfoLink.getAttribute('href'));
       }
     });
     
@@ -129,8 +126,7 @@ const TodoList = async function(){
     btnRegist.textContent='';
 
     btnRegist.addEventListener("click", () => {
-       const registPage=TodoRegist();
-       document.querySelector("#page").replaceWith(registPage);
+      linkTo('regist');
      });
 
     content.appendChild(btnRegist);
