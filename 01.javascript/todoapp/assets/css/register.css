@@ -1,6 +1,6 @@
 .registerArticle {
   background-color: #fff;
-  margin: 10px 10px;
+  margin-bottom: 10px;
   border-radius: 16px;
   min-height: 30vh;
   display: flex;
@@ -11,8 +11,15 @@
   padding-right: 20px;
 }
 
-.registerSection {
-  min-height: 95vh;
+section#page.registerSection {
+  max-width: 390px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+section.contentSection {
+  position: relative;
+  height: 95vh;
 }
 
 body.registerBody {
@@ -25,6 +32,8 @@ body.registerBody {
   border-top: none;
   border-left: none;
   border-right: none;
+  padding-bottom: 10px;
+  outline: none;
 }
 
 .textInput::placeholder {
@@ -41,23 +50,44 @@ body.registerBody {
   font-size: 1rem;
   font-weight: 400;
   min-height: 20vh;
-  outline: none;
+  resize: none;
+  border: none;
 }
 
 .btnDiv {
   display: flex;
   justify-content: flex-end;
-  padding-right: 10px;
+  /* position: absolute;
+  right: 15px;
+  bottom: 35px; */
+  position: fixed;
+  /* right: calc(50% - 135px); */
+  bottom: 50px;
+  min-width: 340px;
+  max-width: 390px;
+  width: 100%;
 }
 
 .registerBtn {
-  background-color: #fdd287;
-  width: 150px;
-  height: 58px;
+  background-color: #d9d9d9;
+  width: 100px;
+  height: 60px;
   border-radius: 16px;
-  font-size: 20px;
+  font-size: 1rem;
   font-weight: bold;
   cursor: pointer;
+  border: 2px solid #303037;
+}
+
+button.register-active {
+  background-color: #fdd287;
+}
+
+button.backArrow {
+  background-color: transparent;
+  margin-top: 45px;
+  margin-bottom: 20px;
+  padding-left: 0;
 }
 
 footer {
