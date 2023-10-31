@@ -1,6 +1,4 @@
-// import Header from '../../layout/Header.js';
-// import Footer from '../../layout/Footer.js';
-
+import Footer from '../../layout/Footer.js';
 import { linkTo } from '../../Router.js';
 
 const defaultInstance = axios.create({
@@ -19,32 +17,35 @@ const getData = async () => {
   }
 };
 
-let menu = 'All';
+let menu = 'Todo';
 const displayCategory = (parent) => {
   const ul = document.createElement('ul');
   ul.classList.add('category-list');
 
   const liAll = document.createElement('li');
-  liAll.classList.add('category-item', 'active');
-  liAll.textContent = 'All';
+  liAll.classList.add('category-item');
+  liAll.textContent = '📋 All';
 
   const liTodo = document.createElement('li');
   liTodo.classList.add('category-item');
-  liTodo.textContent = 'Todo';
+  liTodo.textContent = '📝 Todo';
 
   const liDone = document.createElement('li');
   liDone.classList.add('category-item');
-  liDone.textContent = 'Done';
+  liDone.textContent = '✅ Done';
 
   [liAll, liTodo, liDone].forEach((li) => {
+    if (li.textContent.includes(menu)) {
+      li.classList.add('active');
+    }
+
     li.addEventListener('click', (e) => {
-      [liAll, liTodo, liDone].forEach((i) => i.classList.remove('active'));
-      e.target.classList.add('active');
       menu = e.target.textContent;
 
-      const listContainer = document.querySelector('.list-container');
-      listContainer.textContent = '';
-      displayList(listContainer);
+      [liAll, liTodo, liDone].forEach((i) => i.classList.remove('active'));
+      e.target.classList.add('active');
+
+      displayList();
     });
   });
 
@@ -57,51 +58,67 @@ const displayList = async (parent) => {
   const dataAll = await getData();
 
   let data;
-  if (menu === 'Todo') {
+  if (menu.includes('Todo')) {
     data = dataAll.filter((i) => !i.done);
-  } else if (menu === 'Done') {
+  } else if (menu.includes('Done')) {
     data = dataAll.filter((i) => i.done);
   } else {
     data = dataAll;
   }
 
   data?.forEach((item) => {
-    const btnDetail = document.createElement('button');
-    btnDetail.classList.add('list');
-    btnDetail.setAttribute('type', 'button');
+    const li = document.createElement('li');
+    const todoInfoLink = document.createElement('a');
+    todoInfoLink.setAttribute('href', `info?_id=${item._id}`);
+    todoInfoLink.classList.add('list-item');
+
+    const div = document.createElement('div');
 
     const checkbox = document.createElement('input');
-    checkbox.classList.add('check');
+    checkbox.classList.add('list-item__check');
     checkbox.setAttribute('type', 'checkbox');
     checkbox.setAttribute('id', item._id);
-    if (item.done) {
-      checkbox.setAttribute('checked', 'true');
-    }
 
     checkbox.addEventListener('change', async function () {
-      const isChecked = this.checked;
-      console.log(isChecked);
       await defaultInstance.patch(`/todolist/${item._id}`, {
-        done: isChecked,
+        done: this.checked,
       });
+      displayList();
     });
 
     const label = document.createElement('label');
-    label.classList.add('ladel');
-    label.setAttribute('for', item._id);
+    label.classList.add('list-item__title');
     label.textContent = item.title;
 
-    btnDetail.addEventListener('click', async function (event) {
-      if (event.target.type === 'button') {
-        linkTo(`info?_id=${item._id}`);
+    todoInfoLink.addEventListener('click', function (event) {
+      if (event.target.type !== 'checkbox') {
+        event.preventDefault();
+        linkTo(todoInfoLink.getAttribute('href'));
       }
     });
 
-    btnDetail.append(checkbox, label);
-    frag.appendChild(btnDetail);
+    if (item.done) {
+      todoInfoLink.classList.add('done');
+      checkbox.setAttribute('checked', 'true');
+    }
+
+    div.append(checkbox, label);
+
+    const date = document.createElement('p');
+    date.setAttribute('class', 'list-item__date');
+    date.textContent = item.updatedAt.slice(0, 11);
+
+    todoInfoLink.append(div, date);
+    li.appendChild(todoInfoLink);
+    frag.appendChild(li);
   });
 
-  parent.appendChild(frag);
+  if (parent) parent.appendChild(frag);
+  else {
+    const listContainer = document.querySelector('.list-container');
+    listContainer.textContent = '';
+    listContainer.appendChild(frag);
+  }
 };
 
 const TodoList = async function () {
@@ -116,7 +133,6 @@ const TodoList = async function () {
 
     const listContainer = document.createElement('ul');
     listContainer.setAttribute('class', 'list-container');
-
     displayList(listContainer);
 
     content.appendChild(listContainer);
@@ -136,9 +152,8 @@ const TodoList = async function () {
     content.appendChild(error);
   }
 
-  //  page.appendChild(Header("TODO App 목록 조회"));
   page.appendChild(content);
-  //  page.appendChild(Footer());
+  page.appendChild(Footer());
 
   return page;
 };
