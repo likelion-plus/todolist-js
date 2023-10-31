@@ -66,7 +66,7 @@ const displayList = async (parent) => {
     data = dataAll;
   }
 
-  data?.forEach((item) => {
+  data?.sort((a, b) => new Date(b.updatedAt)-new Date(a.updatedAt)).forEach((item) => {
     const li = document.createElement('li');
     const todoInfoLink = document.createElement('a');
     todoInfoLink.setAttribute('href', `info?_id=${item._id}`);
