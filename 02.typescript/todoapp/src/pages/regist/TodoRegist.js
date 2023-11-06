@@ -1,6 +1,7 @@
 // 할일 등록
 import './register.css';
 import Footer from '../../layout/Footer';
+import axios from 'axios';
 
 const TodoRegist = function () {
   document.querySelector('body').setAttribute('class', 'registerBody');

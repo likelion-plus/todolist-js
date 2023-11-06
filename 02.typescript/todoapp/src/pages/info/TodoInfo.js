@@ -1,5 +1,6 @@
 // 할일 등록
 import './info.css';
+import axios from 'axios';
 import Footer from '../../layout/Footer';
 
 const TodoInfo = async function () {
