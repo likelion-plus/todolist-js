@@ -7,7 +7,7 @@
     "skipLibCheck": true,
 
     /* JavaScript Support */
-    "allowJs": true, //JS 모듈 사용 가능
+    "allowJs": true, // JS 모듈 사용 가능
 
     /* Bundler mode */
     "moduleResolution": "bundler",
