@@ -2,7 +2,6 @@
 import './info.css';
 import axios from 'axios';
 import Footer from '../../layout/Footer';
-import axios from 'axios';
 import defaultInstance from './../../axios';
 
 const getData = async function () {
@@ -138,8 +137,8 @@ const TodoInfo = async function () {
   content.appendChild(div);
 
   content.appendChild(btnWrap);
-  btnWrap.appendChild(deleteBtn);
   btnWrap.appendChild(modifyBtn);
+  btnWrap.appendChild(deleteBtn);
 
   page.appendChild(content);
   page.appendChild(Footer());
