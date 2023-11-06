@@ -1,0 +1,110 @@
+html {
+  background: #288d8d;
+}
+
+#page {
+  min-width: 340px;
+  padding: 25px;
+}
+#content {
+  max-width: 390px;
+  height: calc(100vh - 56px);
+  margin: 0 auto;
+}
+
+.list-container {
+  width: 100%;
+  margin: 0 auto;
+  height: calc(100% - 80px);
+  /* 임시 스크롤 */
+  overflow-y: scroll;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.list-container::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera*/
+}
+
+.list-item {
+  display: block;
+  width: 100%;
+  border-radius: 16px;
+  background-color: #b1f3de;
+  margin-bottom: 16px;
+  padding: 15px;
+}
+.list-item > div {
+  display: flex;
+  flex-basis: 100%;
+  gap: 10px;
+}
+.list-item * {
+  cursor: pointer;
+}
+.list-item.done {
+  background-color: #6dd1b1;
+}
+.list-item.done label {
+  text-decoration: line-through;
+}
+
+.list-item__check {
+  flex-shrink: 0;
+  appearance: none;
+  width: 24px;
+  height: 24px;
+  vertical-align: middle;
+  margin: 0;
+  transition: all 0.1s;
+  background: url(../img/check.svg) no-repeat 0 center / cover;
+}
+
+.list-item__check:checked {
+  background-image: url(../img/check-checked.svg);
+}
+
+.list-item__title {
+  font-size: 20px;
+  text-align: left;
+}
+
+.list-item__date {
+  text-align: right;
+  font-size: 14px;
+  margin-top: 8px;
+}
+
+.category-list {
+  display: flex;
+  justify-content: space-between;
+  font-size: 20px;
+  padding: 20px;
+}
+
+.category-item {
+  cursor: pointer;
+  padding: 10px;
+}
+
+.category-item.active {
+  color: #fdd287;
+  background-color: rgba(253, 210, 135, 0.5);
+  padding: 10px;
+  border-radius: 4px;
+}
+
+.enrollment {
+  position: fixed;
+  right: calc(50% - 135px);
+  bottom: 12%;
+  transform: translate(50%, 50%);
+  border: 2px solid #303037;
+  border-radius: 16px;
+  background: url('/img/enrollment.svg') no-repeat center / 50%;
+  background-color: #fdd287;
+  width: 60px;
+  height: 60px;
+}
+
+/*  */
