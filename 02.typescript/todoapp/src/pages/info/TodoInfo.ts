@@ -1,5 +1,6 @@
 //상세 페이지
 import './info.css';
+import axios from 'axios';
 import Footer from '../../layout/Footer';
 import axios from 'axios';
 import defaultInstance from './../../axios';

@@ -2,7 +2,15 @@ interface TodoItem {
   _id: number;
   title: string;
   content: string;
-  done: true;
+  done: boolean;
+  createdAt: string;
+  updatedAt: string;
+}
+
+interface TodoListMain {
+  _id: number;
+  title: string;
+  done: boolean;
   createdAt: string;
   updatedAt: string;
 }
