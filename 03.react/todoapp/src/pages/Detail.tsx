@@ -14,7 +14,7 @@ const initialData = {
 };
 
 export default function Detail() {
-  const { id } = useParams();
+  const { _id } = useParams();
   const [title, setTitle] = useState(initialData.title);
   const [originalTitle, setOriginalTitle] = useState('');
   const [originalContent, setOriginalContent] = useState('');
@@ -27,8 +27,9 @@ export default function Detail() {
   const getData = async () => {
     try {
       const response: AxiosResponse = await defaultInstance.get(
-        `/todolist/${id}`
+        `/todolist/${_id}`
       );
+
       return response.data?.item;
     } catch (e) {
       console.error(e);
@@ -70,7 +71,7 @@ export default function Detail() {
   }
 
   async function handleModifyBtn() {
-    await defaultInstance.patch(`/todolist/${id}`, {
+    await defaultInstance.patch(`/todolist/${_id}`, {
       title,
       content,
     });
@@ -81,7 +82,7 @@ export default function Detail() {
   async function handleDeleteBtn() {
     const confirmDelete = confirm('삭제하시겠습니까?');
     if (confirmDelete) {
-      await defaultInstance.delete(`/todolist/${id}`);
+      await defaultInstance.delete(`/todolist/${_id}`);
       alert('삭제되었습니다.');
       location.href = '/';
     }
@@ -93,7 +94,7 @@ export default function Detail() {
 
   const isChecked = async () => {
     setDone(!done);
-    await defaultInstance.patch(`/todolist/${id}`, {
+    await defaultInstance.patch(`/todolist/${_id}`, {
       done: !done,
     });
   };
