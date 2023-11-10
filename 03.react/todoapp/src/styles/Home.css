@@ -6,11 +6,13 @@ html {
   min-width: 340px;
   padding: 25px;
 }
-#content {
+
+div#content {
   max-width: 390px;
   height: calc(100vh - 56px);
   margin: 0 auto;
 }
+
 .list-container {
   width: 100%;
   margin: 0 auto;
