@@ -1,97 +1,74 @@
-/* 상단 화살표 추가하기 */
-/* 상세페이지 css */
-
-.page-01 {
+main.detailMain {
   background-color: #303037;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  margin: 0 auto;
-  padding: 1rem;
-  width: 100%;
-  height: calc(var(--vh, 1vh) * 100);
+  padding: 25px;
+  height: 100vh;
 }
 
-article.detail-article {
-  width: 100%;
-  height: 100%;
+section.detailSection {
+  min-width: 340px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
   max-width: 390px;
+  margin: 0 auto;
 }
 
-.registerHeading {
+article.text {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.titleInput {
+  border-radius: 16px 16px 0 0;
+  font-size: 1.5rem;
+  padding: 32px 25px;
+  background-color: #b1f3de;
+  border: none;
+  outline: none;
+}
+
+.contentInput {
+  min-height: 11rem;
+  border-radius: 0 0 16px 16px;
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 12px 25px;
+  background-color: #b1f3de;
+  border: none;
+  outline: none;
+  resize: none;
+}
+
+article.dateCheck {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  padding-bottom: 20px;
+}
+
+p.updatedDate {
+  color: wheat;
   font-size: 1.5rem;
   font-weight: bold;
 }
 
-.time {
-  color: #fff;
-  font-size: 24px;
-  font-weight: bold;
+article.arrow {
+  margin-right: auto;
 }
 
-.back-arrow img {
-  background: url(../img/Arrow.svg) no-repeat;
-  padding: 1rem;
+button.backArrow {
+  margin: 20px 0;
+  background: transparent;
 }
 
-.back-arrow {
-  background: none;
-  padding: 0;
-  margin: 20px 0 1.2rem 0;
-}
-
-.input-box {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  padding-top: 20px;
-}
-
-.input-box > * {
-  display: block;
-}
-
-.input-box input,
-.input-box textarea {
-  background-color: #b1f3de;
-  padding: 0.5rem;
-  border: none;
-}
-
-.input-box input {
-  border-radius: 16px 16px 0 0;
-  font-size: 24px;
-  padding: 32px 25px;
-}
-
-.input-box textarea {
-  padding: 0.5rem;
-  min-height: 11rem;
-  border-radius: 0 0 16px 16px;
-  font-weight: bold;
-  font-size: 1rem;
-  padding: 12px 25px;
-}
-
-.topDiv {
-  display: flex;
-  width: 100%;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.btn-wrap {
+.btnWrap {
   display: flex;
   width: 100%;
   flex-direction: column;
 }
 
-.btn-wrap button {
+.btnWrap button {
   flex-grow: 1;
   padding: 16px;
   border: 2px solid #303037;
@@ -116,6 +93,7 @@ button#remove:hover {
 #change:disabled {
   background-color: #d9d9d9;
   color: black;
+  cursor: default;
 }
 
 /* toggle 버튼 */
