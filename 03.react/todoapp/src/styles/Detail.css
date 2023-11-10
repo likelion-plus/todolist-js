@@ -1,3 +1,149 @@
-body {
+main.detailMain {
   background-color: #303037;
+  padding: 25px;
+  height: 100vh;
+}
+
+section.detailSection {
+  min-width: 340px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 390px;
+  margin: 0 auto;
+}
+
+article.text {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.titleInput {
+  border-radius: 16px 16px 0 0;
+  font-size: 1.5rem;
+  padding: 32px 25px;
+  background-color: #b1f3de;
+  border: none;
+  outline: none;
+}
+
+.contentInput {
+  min-height: 11rem;
+  border-radius: 0 0 16px 16px;
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 12px 25px;
+  background-color: #b1f3de;
+  border: none;
+  outline: none;
+  resize: none;
+}
+
+article.dateCheck {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  padding-bottom: 20px;
+}
+
+p.updatedDate {
+  color: wheat;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+article.arrow {
+  margin-right: auto;
+}
+
+button.backArrow {
+  margin: 20px 0;
+  background: transparent;
+}
+
+.btnWrap {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+}
+
+.btnWrap button {
+  flex-grow: 1;
+  padding: 16px;
+  border: 2px solid #303037;
+  border-radius: 16px;
+  margin-top: 10px;
+  font-weight: bold;
+  font-size: 1rem;
+  width: 100%;
+  height: 60px;
+  background-color: #fdd287;
+  cursor: pointer;
+}
+
+button#remove {
+  background-color: #71718d;
+}
+
+button#remove:hover {
+  background-color: #ee715e;
+}
+
+#change:disabled {
+  background-color: #d9d9d9;
+  color: black;
+  cursor: default;
+}
+
+/* toggle 버튼 */
+.toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.toggleSwitch {
+  width: 57px;
+  height: 30px;
+  display: block;
+  position: relative;
+  border-radius: 16px;
+  background-color: #aba9a9;
+  box-shadow: 0 0 16px 3px rgba(0 0 0 / 15%);
+  cursor: pointer;
+}
+
+.toggleSwitch .toggleButton {
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  top: 50%;
+  left: 4px;
+  transform: translateY(-50%);
+  border-radius: 50%;
+  background: #fff;
+}
+
+#toggle:checked ~ .toggleSwitch {
+  background: #288d8d;
+}
+
+#toggle {
+  display: none;
+}
+
+#toggle:checked ~ .toggleSwitch .toggleButton {
+  left: calc(100% - 28px);
+  background: #fff;
+}
+
+.toggleSwitch,
+.toggleButton {
+  transition: all 0.3s ease-in;
+}
+
+.toggle label {
+  width: 57px;
 }
