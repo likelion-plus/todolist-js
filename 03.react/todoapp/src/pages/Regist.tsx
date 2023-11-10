@@ -55,6 +55,7 @@ export default function Regist() {
     await defaultInstance.post(`/todolist`, {
       title,
       content,
+      done: false,
     });
     location.href = '/';
   }
