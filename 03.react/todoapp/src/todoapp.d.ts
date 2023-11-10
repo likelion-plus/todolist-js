@@ -11,7 +11,7 @@ interface TodoListMain {
   _id: number;
   title: string;
   done: boolean;
-  createdAt: string;
+  createdAt?: string;
   updatedAt: string;
 }
 
