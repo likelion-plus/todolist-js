@@ -11,6 +11,7 @@ div#content {
   max-width: 390px;
   height: calc(100vh - 56px);
   margin: 0 auto;
+  position: relative;
 }
 
 .list-container {
@@ -19,12 +20,15 @@ div#content {
   height: calc(100% - 80px);
   /* 임시 스크롤 */
   overflow-y: scroll;
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
 }
 
 .list-container::-webkit-scrollbar {
-  display: none; /* Chrome, Safari, Opera*/
+  display: none;
+  /* Chrome, Safari, Opera*/
 }
 
 .list-item {
@@ -35,17 +39,15 @@ div#content {
   margin-bottom: 16px;
   padding: 15px;
 }
-.list-item > div {
-  display: flex;
-  flex-basis: 100%;
-  gap: 10px;
-}
+
 .list-item * {
   cursor: pointer;
 }
+
 .list-item.done {
   background-color: #6dd1b1;
 }
+
 .list-item.done label {
   text-decoration: line-through;
 }
@@ -56,7 +58,7 @@ div#content {
   width: 24px;
   height: 24px;
   vertical-align: middle;
-  margin: 0;
+  margin-right: 5px;
   transition: all 0.1s;
   background: url(../check.svg) no-repeat 0 center / cover;
 }
@@ -67,7 +69,6 @@ div#content {
 
 .list-item__title {
   font-size: 20px;
-  text-align: left;
 }
 
 .list-item__date {
@@ -96,9 +97,9 @@ div#content {
 }
 
 .enrollment {
-  position: fixed;
-  right: calc(50% - 135px);
-  bottom: 12%;
+  position: absolute;
+  right: 30px;
+  bottom: 30px;
   transform: translate(50%, 50%);
   border: 2px solid #303037;
   border-radius: 16px;
