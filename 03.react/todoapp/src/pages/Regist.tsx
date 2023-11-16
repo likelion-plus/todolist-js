@@ -4,6 +4,7 @@ import defaultInstance from '@/axios';
 import Button from '@/component/Button';
 import 'styles/Regist.css';
 import 'styles/Detail.css';
+import toast from 'react-hot-toast';
 
 export default function Regist() {
   const [btnDisabled, setBtnDisabled] = useState(true);
@@ -47,17 +48,13 @@ export default function Regist() {
   }
 
   async function handleRegist() {
-    if (title === '' || content === '') {
-      alert('할 일과 내용을 입력해주세요');
-      return;
-    }
-
     await defaultInstance.post(`/todolist`, {
       title,
       content,
       done: false,
     });
-    location.href = '/';
+    toast.success('등록되었습니다.');
+    navigate('/');
   }
 
   return (

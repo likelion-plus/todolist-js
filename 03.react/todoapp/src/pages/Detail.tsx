@@ -4,6 +4,7 @@ import { AxiosResponse } from 'axios';
 import defaultInstance from '@/axios';
 import Button from '@/component/Button';
 import 'styles/Detail.css';
+import { toast } from 'react-hot-toast';
 
 const initialData = {
   title: '',
@@ -48,7 +49,7 @@ export default function Detail() {
       setDone(done);
     };
     TodoInfo();
-  }, []);
+  }, [getData]);
 
   function checkModifyTitle(e: ChangeEvent<HTMLInputElement>) {
     const content = document.querySelector('#content')?.textContent;
@@ -61,7 +62,7 @@ export default function Detail() {
   }
 
   function checkModifyContent(e: ChangeEvent<HTMLTextAreaElement>) {
-    const title = document.querySelector('#title')?.textContent;
+    const title = document.querySelector('#title')?.value;
     if (originalContent === e.target.value && title === originalTitle) {
       setBtnDisabled(true);
     } else if (e.target.value !== undefined && content !== e.target.value) {
@@ -75,16 +76,16 @@ export default function Detail() {
       title,
       content,
     });
-    alert('수정되었습니다.');
-    location.href = '/';
+    toast.success('수정되었습니다.');
+    navigate('/');
   }
 
   async function handleDeleteBtn() {
     const confirmDelete = confirm('삭제하시겠습니까?');
     if (confirmDelete) {
       await defaultInstance.delete(`/todolist/${_id}`);
-      alert('삭제되었습니다.');
-      location.href = '/';
+      toast.error('삭제되었습니다.');
+      navigate('/');
     }
   }
 
