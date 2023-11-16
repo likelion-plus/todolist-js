@@ -23,7 +23,7 @@ input.titleRegist {
 
 textarea.contentRegist {
   background-color: white;
-  min-height: 11rem;
+  min-height: 15rem;
   border-radius: 0 0 16px 16px;
   font-size: 1rem;
   font-weight: bold;

@@ -1,18 +1,27 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Dispatch, SetStateAction } from 'react';
+
 export const CategoryMenu = ({
-  selector,
+  setSelected,
+  selected,
 }: {
   selector: Dispatch<SetStateAction<string>>;
 }) => {
-  const [active, setActive] = useState('');
+  const [active, setActive] = useState('📝 Todo');
+
   const filters = ['📋 All', '📝 Todo', '✅ Done'];
+
   const handleClick: React.MouseEventHandler<HTMLLIElement> = (e) => {
     const current = e.currentTarget.textContent || '';
-    // if()
-    selector(current);
+    setSelected(current);
     setActive(current);
   };
+
+  useEffect(() => {
+    setSelected(selected);
+    setActive(active);
+  }, [active, selected, setSelected, setActive]);
+
   return (
     <>
       <ul className="category-list">
