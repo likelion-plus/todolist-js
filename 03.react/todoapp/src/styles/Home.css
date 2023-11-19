@@ -108,3 +108,12 @@ div#content {
   width: 60px;
   height: 60px;
 }
+
+button.sortBtn {
+  display: block;
+  margin-left: auto;
+  background: none;
+  color: wheat;
+  font-size: 1rem;
+  padding-bottom: 20px;
+}
