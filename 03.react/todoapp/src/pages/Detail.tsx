@@ -49,7 +49,7 @@ export default function Detail() {
       setDone(done);
     };
     TodoInfo();
-  }, [getData]);
+  }, []);
 
   function checkModifyTitle(e: ChangeEvent<HTMLInputElement>) {
     const content = document.querySelector('#content')?.textContent;

@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import defaultInstance from '@/axios';
 import { useTodoStore } from './../store/useTodoStore';
 
@@ -7,14 +7,14 @@ export const ListItem = ({ _id, updatedAt, title, done }: TodoListMain) => {
   const [isDone, setIsDone] = useState(done);
   const { edit, setEdit } = useTodoStore();
 
-  const handleCheck = async () => {
+  const handleCheck = useCallback(async () => {
     setIsDone(!isDone);
     setEdit(!edit);
 
     await defaultInstance.patch(`/todolist/${_id}`, {
       done: !isDone,
     });
-  };
+  }, [edit, _id, isDone, setEdit]);
 
   useEffect(() => {
     setIsDone(done);

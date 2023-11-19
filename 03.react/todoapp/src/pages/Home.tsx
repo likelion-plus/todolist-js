@@ -23,9 +23,14 @@ export default function Home() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const res = await getData();
-      setList(res);
-      return;
+      const getList = await getData();
+
+      setList(
+        getList.toSorted(
+          (a: TodoListMain, b: TodoListMain) =>
+            +new Date(b.updatedAt) - +new Date(a.updatedAt)
+        )
+      );
     };
     fetchData();
   }, [edit]);
@@ -35,8 +40,7 @@ export default function Home() {
       <div id="page">
         <div id="content">
           <CategoryMenu selected={selected} setSelected={setSelected} />
-          {/* <button type="button">최신 순</button> */}
-          <MainList selected={selected} list={list} />
+          <MainList selected={selected} list={list} setList={setList} />
           <button
             className="enrollment"
             onClick={() => navigate('/regist')}
